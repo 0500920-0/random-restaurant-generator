@@ -54,7 +54,7 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
         randomObject.reset(json.list);
         currentLocationLayer = addPin(currentLocation, olMap, { isCurrent: true });
       } catch (err) {
-        if (err instanceof ReferenceError) { // if Geolocation API is not supported
+        if (err instanceof ReferenceError || err instanceof GeolocationPositionError) { // if Geolocation API is not supported
           /** @type {HTMLInputElement} */(document.getElementById('randomDefault')).value = 'default';
         } else { // rethrow XD
           throw err;
