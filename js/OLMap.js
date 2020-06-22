@@ -1,18 +1,18 @@
-import Feature from 'https://cdn.pika.dev/ol@%5E6.3.1/Feature?module';
-import OLMap from 'https://cdn.pika.dev/ol@%5E6.3.1/Map?module';
-import View from 'https://cdn.pika.dev/ol@%5E6.3.1/View?module';
-import Point from 'https://cdn.pika.dev/ol@%5E6.3.1/geom/Point?module';
-// import { Tile as TileLayer, Vector as VectorLayer } from 'https://cdn.pika.dev/ol@%5E6.3.1/layer.js?module';
-import TileLayer from 'https://cdn.pika.dev/ol@%5E6.3.1/layer/Tile?module';
-import VectorLayer from 'https://cdn.pika.dev/ol@%5E6.3.1/layer/Vector?module';
-import { fromLonLat } from 'https://cdn.pika.dev/ol@%5E6.3.1/proj?module';
-import OSM from 'https://cdn.pika.dev/ol@%5E6.3.1/source/OSM?module';
-import VectorSource from 'https://cdn.pika.dev/ol@%5E6.3.1/source/Vector?module';
-// import { Circle as CircleStyle, Fill, Stroke, Style } from 'https://cdn.pika.dev/ol@%5E6.3.1/style.js?module';
-import CircleStyle from 'https://cdn.pika.dev/ol@%5E6.3.1/style/Circle?module';
-import Fill from 'https://cdn.pika.dev/ol@%5E6.3.1/style/Fill?module';
-import Stroke from 'https://cdn.pika.dev/ol@%5E6.3.1/style/Stroke?module';
-import Style from 'https://cdn.pika.dev/ol@%5E6.3.1/style/Style?module';
+import Feature from 'https://unpkg.com/ol@6.3.1/Feature?module';
+import OLMap from 'https://unpkg.com/ol@6.3.1/Map?module';
+import View from 'https://unpkg.com/ol@6.3.1/View?module';
+import Point from 'https://unpkg.com/ol@6.3.1/geom/Point?module';
+// import { Tile as TileLayer, Vector as VectorLayer } from 'https://unpkg.com/ol@6.3.1/layer.js?module';
+import TileLayer from 'https://unpkg.com/ol@6.3.1/layer/Tile?module';
+import VectorLayer from 'https://unpkg.com/ol@6.3.1/layer/Vector?module';
+import { fromLonLat } from 'https://unpkg.com/ol@6.3.1/proj?module';
+import OSM from 'https://unpkg.com/ol@6.3.1/source/OSM?module';
+import VectorSource from 'https://unpkg.com/ol@6.3.1/source/Vector?module';
+// import { Circle as CircleStyle, Fill, Stroke, Style } from 'https://unpkg.com/ol@6.3.1/style.js?module';
+import CircleStyle from 'https://unpkg.com/ol@6.3.1/style/Circle?module';
+import Fill from 'https://unpkg.com/ol@6.3.1/style/Fill?module';
+import Stroke from 'https://unpkg.com/ol@6.3.1/style/Stroke?module';
+import Style from 'https://unpkg.com/ol@6.3.1/style/Style?module';
 
 /**
  * Pin the map by the given location.
