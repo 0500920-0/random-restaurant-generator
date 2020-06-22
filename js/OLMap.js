@@ -1,18 +1,18 @@
-import Feature from 'https://unpkg.com/ol@6.3.1/Feature?module';
-import OLMap from 'https://unpkg.com/ol@6.3.1/Map?module';
-import View from 'https://unpkg.com/ol@6.3.1/View?module';
-import Point from 'https://unpkg.com/ol@6.3.1/geom/Point?module';
-// import { Tile as TileLayer, Vector as VectorLayer } from 'https://unpkg.com/ol@6.3.1/layer.js?module';
-import TileLayer from 'https://unpkg.com/ol@6.3.1/layer/Tile?module';
-import VectorLayer from 'https://unpkg.com/ol@6.3.1/layer/Vector?module';
-import { fromLonLat } from 'https://unpkg.com/ol@6.3.1/proj?module';
-import OSM from 'https://unpkg.com/ol@6.3.1/source/OSM?module';
-import VectorSource from 'https://unpkg.com/ol@6.3.1/source/Vector?module';
-// import { Circle as CircleStyle, Fill, Stroke, Style } from 'https://unpkg.com/ol@6.3.1/style.js?module';
-import CircleStyle from 'https://unpkg.com/ol@6.3.1/style/Circle?module';
-import Fill from 'https://unpkg.com/ol@6.3.1/style/Fill?module';
-import Stroke from 'https://unpkg.com/ol@6.3.1/style/Stroke?module';
-import Style from 'https://unpkg.com/ol@6.3.1/style/Style?module';
+import Feature from 'https://jspm.dev/ol/Feature?module';
+import OLMap from 'https://jspm.dev/ol/Map?module';
+import View from 'https://jspm.dev/ol/View?module';
+import Point from 'https://jspm.dev/ol/geom/Point?module';
+// import { Tile as TileLayer, Vector as VectorLayer } from 'https://jspm.dev/ol/layer.js?module';
+import TileLayer from 'https://jspm.dev/ol/layer/Tile?module';
+import VectorLayer from 'https://jspm.dev/ol/layer/Vector?module';
+import { fromLonLat } from 'https://jspm.dev/ol/proj?module';
+import OSM from 'https://jspm.dev/ol/source/OSM?module';
+import VectorSource from 'https://jspm.dev/ol/source/Vector?module';
+// import { Circle as CircleStyle, Fill, Stroke, Style } from 'https://jspm.dev/ol/style.js?module';
+import CircleStyle from 'https://jspm.dev/ol/style/Circle?module';
+import Fill from 'https://jspm.dev/ol/style/Fill?module';
+import Stroke from 'https://jspm.dev/ol/style/Stroke?module';
+import Style from 'https://jspm.dev/ol/style/Style?module';
 
 /**
  * Pin the map by the given location.
