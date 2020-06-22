@@ -36,22 +36,30 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
   document.querySelector('form.randomTypeRadio').addEventListener('input', async (evt) => {
     const randomType = /** @type {HTMLInputElement} */(evt.target).value;
     if (randomType === 'nearest') {
-      const currentLocation = await locate();
-      for (let item of json.list) {
-        const itemLocation = { latitude: item.latitude, longitude: item.longitude };
-        const distance = getDistance(currentLocation, itemLocation);
-        if (distance < 500) {
-          item.weight = item.defaultWeight * 4;
-        } else if (distance < 1000) {
-          item.weight = item.defaultWeight * 3;
-        } else if (distance < 2000) {
-          item.weight = item.defaultWeight * 2;
-        } else {
-          item.weight = item.defaultWeight;
+      try {
+        const currentLocation = await locate();
+        for (let item of json.list) {
+          const itemLocation = { latitude: item.latitude, longitude: item.longitude };
+          const distance = getDistance(currentLocation, itemLocation);
+          if (distance < 500) {
+            item.weight = item.defaultWeight * 4;
+          } else if (distance < 1000) {
+            item.weight = item.defaultWeight * 3;
+          } else if (distance < 2000) {
+            item.weight = item.defaultWeight * 2;
+          } else {
+            item.weight = item.defaultWeight;
+          }
+        }
+        randomObject.reset(json.list);
+        currentLocationLayer = addPin(currentLocation, olMap, { isCurrent: true });
+      } catch (err) {
+        if (err instanceof ReferenceError) { // if Geolocation API is not supported
+          /** @type {HTMLInputElement} */(document.getElementById('randomDefault')).value = 'default';
+        } else { // rethrow XD
+          throw err;
         }
       }
-      randomObject.reset(json.list);
-      currentLocationLayer = addPin(currentLocation, olMap, { isCurrent: true });
     } else { // if randomType === 'default'
       for (let item of json.list) {
         delete item.weight;
