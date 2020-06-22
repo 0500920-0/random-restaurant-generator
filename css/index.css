@@ -55,7 +55,7 @@ main section .description {
 
 #probability .randomTypeRadio input[type="radio"]:checked + label {
     border-bottom: 2px solid teal;
-    transition: all .1s ease-in-out;
+    transition: border .1s ease-in-out;
 }
 
 #probability .probabilityList {
@@ -73,7 +73,27 @@ main section .description {
 #probability .probabilityList th {
     font-weight: normal;
     font-size: large;
-    border-bottom: 1px solid grey;
+    border-bottom: 2px solid grey;
+}
+#probability .probabilityList th button.btn {
+    display: block;
+    font-size: normal;
+    float: right;
+    margin: 0;
+    padding: 0;
+}
+#probability .probabilityList input {
+    border: none;
+    font-size: normal;
+    float: right;
+    text-align: right;
+    box-sizing: border-box;
+    width: 4rem;
+}
+#probability .probabilityList input:focus {
+    outline: none;
+    border-bottom: 1px solid teal;
+    transition: border .1s ease-in-out;
 }
 
 #olmap {
@@ -92,9 +112,6 @@ main section .description {
     border-radius: 4px;
     transition: background .2s ease-in-out;
     font-size: smaller;
-    
-    position: absolute;
-    bottom: 1rem;
 }
 button.btn {
     border: none;
@@ -103,6 +120,11 @@ button.btn {
 a.btn {
     text-decoration: none;
 }
+#reset {
+    position: absolute;
+    bottom: 1rem;
+}
+
 
 .btn:hover {
     background: lightblue;
