@@ -13,10 +13,6 @@
   <main>
     <section id="intro">
       <header>歡迎使用「臺大吃什麼」</header>
-      <p>在二月初回臺灣之後，整個月每天都待在宿舍，最大的難題是午餐、晚餐要吃什麼，所以我需要一個有權重的隨機產生器。</p>
-      <p>隨機生成餐廳的程式感覺蠻老套的，所以我便加入了權重功能，可以減低我不太想吃的餐廳的機率（例如某家廚餘、比較貴的餐廳之類的），也能讓靠近宿舍的餐廳機率提高。</p>
-      <p>既然要知道附近有什麼餐廳，便須要取得定位資訊，那不如就再加入地圖功能吧。</p>
-      <p>於是，這個雜七雜八的東西就這樣誕生了。。。</p>
     </section>
 
     <section id="randomBox">
@@ -28,25 +24,26 @@
     <section id="probability">
       <header>各地點出現機率</header>
       <div class="description">註：若選擇「距離優先」，須要使用手機的定位系統。</div>
-      <form class="randomTypeRadio">
+      <form name="randomType" id="randomTypeRadio" class="randomTypeRadio">
         <input type="radio" name="randomType" value="default" id="randomDefault" checked>
         <label for="randomDefault">預設</label>
 
         <input type="radio" name="randomType" value="nearest" id="randomNearest">
         <label for="randomNearest">距離優先</label>
 
-        <!-- TODO: User define -->
-        <!-- <input type="radio" name="randomType" value="user" id="randomUser">
-        <label for="randomUser">自訂</label> -->
+        <input type="radio" name="randomType" value="user" id="randomUser">
+        <label for="randomUser">自訂</label>
       </form>
-      <table class="probabilityList">
-        <thead>
-          <tr><th class="name" colspan="2">地點</th></tr>
-        </thead>
-        <tbody id="probabilityList">
-          <tr><td class="description" colspan="2">載入中，請稍候……</td></tr>
-        </tbody>
-      </table>
+      <form name="weight" id="weight">
+        <table id="probabilityList" class="probabilityList">
+          <thead>
+            <tr><th id="nameTitle" class="name" colspan="2">地點</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="description" colspan="2">載入中，請稍候……</td></tr>
+          </tbody>
+        </table>
+      </form>
     </section>
 
     <section id="map">
