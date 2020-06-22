@@ -54,12 +54,15 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
         randomObject.reset(json.list);
         currentLocationLayer = addPin(currentLocation, olMap, { isCurrent: true });
       } catch (err) {
-        if (err instanceof ReferenceError || err instanceof GeolocationPositionError) { // if Geolocation API is not supported
-          /** @type {HTMLInputElement} */(document.getElementById('randomDefault')).checked = true;
+        if (err instanceof ReferenceError) { // if Geolocation API is not supported
+          /** @type {HTMLInputElement} */(document.getElementById('randomDefault')).value = 'default';
         } else { // rethrow XD
           throw err;
         }
       }
+    } else if (randomType === 'user') {
+      randomObject.reset(json.list);
+      removePin(currentLocationLayer, olMap);
     } else { // if randomType === 'default'
       for (let item of json.list) {
         delete item.weight;
@@ -76,8 +79,27 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
       }
     }
 
-    refreshProbabilityList(randomObject.getProbabilityList());
+    refreshProbabilityList(randomObject.getProbabilityList(), { isUserDefinable: randomType === 'user' });
 
+    // #submitBtn aka「權重設定完畢」button
+    if (randomType === 'user') {
+      const $form = /** @type {HTMLFormElement} */(document.getElementById('weight'));
+      $form.addEventListener('submit', (evt) => {
+        const formData = new FormData($form);
+        evt.preventDefault();
+        for (let [name, weightStr] of formData) {
+          const weight = +weightStr;
+          if (weight <= 0) {
+            json.list.find((item) => item.name === name).weight = Number.EPSILON;
+          } else {
+            json.list.find((item) => item.name === name).weight = weight;
+          }
+        }
+        randomObject.reset(json.list);
+        replaceRandomResultText('📍 請按右下角');
+        refreshProbabilityList(randomObject.getProbabilityList());
+      });
+    }
   });
 
   document.getElementById('fab').addEventListener('click', () => {

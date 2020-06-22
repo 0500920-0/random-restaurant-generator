@@ -3,15 +3,17 @@
 /**
  * 
  * @param {import('./RandomizerGenerator.js').RandomProbabilityItem[]} randomProbabilityList
+ * @param {Object} option
+ * @param {boolean=} option.isUserDefinable
  */
-export const refreshProbabilityList = (randomProbabilityList) => {
+export const refreshProbabilityList = (randomProbabilityList, { isUserDefinable = false } = { isUserDefinable: false }) => {
     const randomTrArray = randomProbabilityList
         .sort((first, second) => second.probability - first.probability)
         .map((item) => {
             let $tr = document.createElement('tr');
             let $name = document.createElement('td');
             $name.classList.add('name');
-            if (item.alias == null) {
+            if (item.alias == null) { // || item.alias.length > 8
                 $name.append(item.name);
             } else {
                 $name.append(`${item.name}（${item.alias}）`);
@@ -19,19 +21,56 @@ export const refreshProbabilityList = (randomProbabilityList) => {
 
             let $prob = document.createElement('td');
             $prob.classList.add('probability');
-            $prob.append(`${(item.probability * 100).toFixed(2)} %`);
+            if (isUserDefinable) {
+                let $input = document.createElement('input');
+                $input.classList.add('userDefined');
+                $input.name = item.name;
+                $input.type = 'number';
+                $input.value = item.weight.toString();
+                $input.placeholder = item.weight.toString();
+                $prob.append($input);
+            } else {
+                $prob.append(`${(item.probability * 100).toFixed(2)} %`);
+            }
 
             $tr.append($name, $prob);
             return $tr
         });
 
-    let $oldTbody = document.getElementById('probabilityList');
+    let $tbody = document.createElement('tbody');
+    $tbody.append(...randomTrArray);
 
-    let $newTbody = document.createElement('tbody');
-    $newTbody.id = 'probabilityList'
-    $newTbody.append(...randomTrArray);
+    let $thead = document.createElement('thead');
+    let $tr = document.createElement('tr');
 
-    $oldTbody.replaceWith($newTbody);
+    let $name = document.createElement('th');
+    $name.id = 'nameTitle';
+    $name.classList.add('name');
+    $name.colSpan = 2;
+    $name.append('地點');
+
+    if (isUserDefinable) {
+        let $btn = document.createElement('button');
+        $btn.id = 'submitBtn';
+        $btn.append('權重設定完畢');
+        $btn.classList.add('btn');
+
+        $name.append($btn);
+    } else if (document.getElementById('submitBtn') != null) {
+        document.getElementById('submitBtn').remove();
+    }
+
+    $tr.append($name);
+    $thead.append($tr);
+
+    let $oldTable = document.getElementById('probabilityList');
+
+    let $newTable = document.createElement('table');
+    $newTable.id = 'probabilityList'
+    $newTable.classList.add('probabilityList');
+    $newTable.append($thead, $tbody);
+
+    $oldTable.replaceWith($newTable);
 }
 
 /**

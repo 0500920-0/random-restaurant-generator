@@ -16,6 +16,7 @@
  * @property {string} name
  * @property {string=} alias
  * @property {number} probability
+ * @property {number} weight
  */
 
 /** Make a new Random Generator with weights 1. */
@@ -91,6 +92,7 @@ export default class RandomizerGenerator {
     return this.#randomList.map((item) => ({
       name: item.name,
       alias: item.alias ?? undefined,
+      weight: item.weight,
       probability: item.weight / this.#totalWeight,
     }));
   }
