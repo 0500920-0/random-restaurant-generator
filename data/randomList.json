@@ -1,0 +1,22 @@
+{
+    "version": "1.0.0-alpha",
+    "list": [
+      { "name": "小福樓", "latitude": 25.018525, "longitude": 121.537426, "defaultWeight": 4 },
+      { "name": "卓越聯合中心", "latitude": 25.014697, "longitude": 121.537902, "alias": "鹿鳴堂旁", "defaultWeight": 4 },
+      { "name": "二活 | 尊賢館", "latitude": 25.013202, "longitude": 121.536323, "defaultWeight": 2 },
+      { "name": "新月台", "latitude": 25.018563, "longitude": 121.534016, "alias": "運動場", "defaultWeight": 1 },
+      { "name": "醉月湖畔", "latitude": 25.020154, "longitude": 121.538194, "defaultWeight": 2 },
+      { "name": "綜合體育館", "latitude": 25.021653, "longitude": 121.535130, "alias": "後台咖啡", "defaultWeight": 1 },
+      { "name": "次震宇宙館", "latitude": 25.021739, "longitude": 121.537294, "alias": "JM Cafe & Bistro", "defaultWeight": 1 },
+      { "name": "男一", "latitude": 25.015991, "longitude": 121.544738, "alias": "我家廚房", "defaultWeight": 4 },
+      { "name": "男七", "latitude": 25.015175, "longitude": 121.546959, "defaultWeight": 1 },
+      { "name": "男八", "latitude": 25.016973, "longitude": 121.544982, "defaultWeight": 1 },
+      { "name": "女九", "latitude": 25.019434, "longitude": 121.539474, "defaultWeight": 2 },
+      { "name": "大一女", "latitude": 25.015063, "longitude": 121.535067, "defaultWeight": 2 },
+      { "name": "小小福", "latitude": 25.015451, "longitude": 121.537217, "defaultWeight": 2 },
+      { "name": "118", "latitude": 25.021954, "longitude": 121.542822, "defaultWeight": 4 },
+      { "name": "新生南路", "latitude": 25.018717, "longitude": 121.533541, "alias": "大學里", "defaultWeight": 4 },
+      { "name": "公館", "latitude": 25.016049, "longitude": 121.532804, "alias": "臺大校門", "defaultWeight": 4 },
+      { "name": "水源市場", "latitude": 25.013742, "longitude": 121.534973, "alias": "公館夜市", "defaultWeight": 4 }
+    ]
+}

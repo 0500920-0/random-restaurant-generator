@@ -1,0 +1,198 @@
+* {
+    margin: 0;
+    font-family: "微軟正黑體", "蘋方", sans-serif;
+}
+
+body {
+    background: rgba(0,128,128,1);
+    background: linear-gradient(90deg, rgba(0,128,128,1) 0%, rgba(0,150,152,1) 35%, rgba(0,206,209,1) 100%);
+}
+
+main {
+    padding: 2rem;
+}
+
+main section {
+    background: white;
+    box-shadow: 0px 2px 4px grey;
+    padding: 1.5rem;
+    border-radius: 8px;
+    transition: box-shadow 0.1s ease-in;
+    margin-bottom: 1rem;
+
+    /* for .btn */
+    position: relative
+}
+    
+main section header {
+    font-size: x-large;
+    margin-bottom: .5rem;
+}
+
+main section .description {
+    color: grey;
+    font-style: italic;
+    margin: .5rem;
+    font-size: small;
+}
+
+#probability .randomTypeRadio {
+    display: flex;
+}
+
+#probability .randomTypeRadio label {
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    box-sizing: border-box;
+    height: 24px;
+    margin: 0 1rem;
+}
+
+#probability .randomTypeRadio input[type="radio"] {
+    display: none;
+}
+
+#probability .randomTypeRadio input[type="radio"]:checked + label {
+    border-bottom: 2px solid teal;
+    transition: all .1s ease-in-out;
+}
+
+#probability .probabilityList {
+    padding: 1rem;
+    width: 100%;
+}
+#probability .probabilityList .name {
+    width: 75%;
+    text-align: left;
+}
+#probability .probabilityList .probability {
+    width: 25%;
+    text-align: right;
+}
+#probability .probabilityList th {
+    font-weight: normal;
+    font-size: large;
+    border-bottom: 1px solid grey;
+}
+
+#olmap {
+    height: 340px;
+}
+
+#randomBox header {
+    font-size: xx-large;
+    text-align: center;
+}
+
+.btn {
+    color: teal;
+    padding: .5rem;
+    margin-top: .5rem;
+    border-radius: 4px;
+    transition: background .2s ease-in-out;
+    font-size: smaller;
+    
+    position: absolute;
+    bottom: 1rem;
+}
+button.btn {
+    border: none;
+    background: none;
+}
+a.btn {
+    text-decoration: none;
+}
+
+.btn:hover {
+    background: lightblue;
+}
+.btn:active {
+    background: lightskyblue;
+}
+.btn:focus {
+    outline: dashed grey;
+}
+
+.fab {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    float: right;
+    color: white;
+    background: seagreen;
+    box-shadow: 0px 2px 4px grey;
+    border: none;
+
+    padding: 1rem;
+    border-radius: 2rem;
+    font-size: large;
+}
+.fab:hover {
+    background: lightseagreen;
+}
+.fab:active {
+    background: turquoise;
+}
+.fab:focus {
+    outline: dashed grey;
+}
+
+@media(min-width: 720px) {
+    main {
+        width: 630px;
+        margin: 0 auto;
+    }
+    #intro {
+        grid-area: intro;
+    }
+    #probability {
+        grid-area: prob;
+        overflow-y: scroll;
+    }
+    #randomBox {
+        grid-area: random;
+    }
+    #map {
+        grid-area: map;
+    }
+    /* #showMap {
+        display: none;
+    } */
+}
+
+@media(min-width: 960px) {
+    main {
+        width: 900px;
+        margin: 0 auto;
+        display: grid;
+        grid-template: 
+            "intro intro" auto
+            "prob random" 140px
+            "prob map"    450px
+            / 1fr 1fr;
+        gap: 1rem;
+    }
+    main section {
+        margin-bottom: 0;
+    }
+    .fab {
+        bottom: 2rem;
+        right: 2rem;
+        font-size: x-large;
+    }
+}
+
+@media(min-width: 1440px) {
+    main {
+        width: 1280px;
+        grid-template: 
+            "intro intro" auto
+            "prob random" 140px
+            "prob map"    500px
+            / 1fr 2fr;
+    }
+    #olmap {
+        height: 380px;
+    }
+}

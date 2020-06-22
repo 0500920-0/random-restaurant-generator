@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>臺大吃什麼？</title>
+
+  <link rel="stylesheet" href="./node_modules/ol/ol.css">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+
+  <main>
+    <section id="intro">
+      <header>歡迎使用「臺大吃什麼」</header>
+      <div>還沒想好要寫什麼，應該會與 README.md 一起寫。</div>
+    </section>
+
+    <section id="randomBox">
+      <header id="randomResult">📍 請按右下角</header>
+      <button id="reset" class="btn">重置生成器</button>
+      <!-- <a id="showMap" class="btn" href="#map">顯示地圖</a> -->
+    </section>
+
+    <section id="probability">
+      <header>各地點出現機率</header>
+      <div class="description">註：若選擇「距離優先」，須要使用手機的定位系統。</div>
+      <form class="randomTypeRadio">
+        <input type="radio" name="randomType" value="default" id="randomDefault" checked>
+        <label for="randomDefault">預設</label>
+
+        <input type="radio" name="randomType" value="nearest" id="randomNearest">
+        <label for="randomNearest">距離優先</label>
+
+        <!-- TODO: User define -->
+        <!-- <input type="radio" name="randomType" value="user" id="randomUser">
+        <label for="randomUser">自訂</label> -->
+      </form>
+      <table class="probabilityList">
+        <thead>
+          <tr><th class="name" colspan="2">地點</th></tr>
+        </thead>
+        <tbody id="probabilityList">
+          <tr><td class="description" colspan="2">載入中，請稍候……</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="map">
+      <header>地圖</header>
+      <div class="description">由 OpenStreetMap 提供。</div>
+      <div id="olmap"></div>
+    </section>
+
+  </main>
+  <button id="fab" class="fab">🤤 吃什麼？</button>
+  
+  <script src="./js/index.js" type="module"></script>
+</body>
+</html>
