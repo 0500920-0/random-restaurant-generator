@@ -2,7 +2,7 @@
 
 import RandomGenerator from './RandomizerGenerator.js';
 import { locate, getDistance } from './useGeolocation.js'
-import { initMap, addPin, removePin } from './OLMap_node_ver.js';
+import { initMap, addPin, removePin } from './OLMap.js';
 import { refreshProbabilityList, replaceRandomResultText } from './view.js';
 
 // Main function, called immediately.
