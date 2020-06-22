@@ -36,6 +36,10 @@ main section .description {
     font-size: small;
 }
 
+#intro ul {
+    display: none;
+}
+
 #probability .randomTypeRadio {
     display: flex;
 }
@@ -167,6 +171,9 @@ a.btn {
     }
     #intro {
         grid-area: intro;
+    }
+    #intro ul {
+        display: block;
     }
     #probability {
         grid-area: prob;
