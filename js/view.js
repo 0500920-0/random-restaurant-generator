@@ -26,6 +26,8 @@ export const refreshProbabilityList = (randomProbabilityList, { isUserDefinable 
                 $input.classList.add('userDefined');
                 $input.name = item.name;
                 $input.type = 'number';
+                $input.min = '0';
+                $input.step = 'any';
                 $input.value = item.weight.toString();
                 $input.placeholder = item.weight.toString();
                 $prob.append($input);

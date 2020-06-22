@@ -33,7 +33,7 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
 
   let currentLocationLayer;
 
-  document.querySelector('form.randomTypeRadio').addEventListener('input', async (evt) => {
+  document.querySelector('form.randomTypeRadio').addEventListener('click', async (evt) => { // onInput
     const randomType = /** @type {HTMLInputElement} */(evt.target).value;
     if (randomType === 'nearest') {
       try {
@@ -90,7 +90,7 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
         for (let [name, weightStr] of formData) {
           const weight = +weightStr;
           if (weight <= 0) {
-            json.list.find((item) => item.name === name).weight = Number.EPSILON;
+            json.list.find((item) => item.name === name).weight = Number.EPSILON * 65536;
           } else {
             json.list.find((item) => item.name === name).weight = weight;
           }
