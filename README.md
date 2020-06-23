@@ -40,7 +40,7 @@
 雖然沒有使用 jQuery，但是為了顯示地圖，我還是使用了 [OpenLayers 程式庫](https://openlayers.org/)，地圖由 [OpenStreetMap](https://www.openstreetmap.org/) 提供。
 
 ## 2020/06/23 更新內容
-1. 由於不少瀏覽器（尤其手機）不支援，故移除 [RandomizerGenerators.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/RandomizerGenerators.js) 中的 [Private class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)，同時新增兼容 Firefox 等瀏覽器。
+1. 由於不少瀏覽器（尤其手機）不支援，故移除 [RandomizerGenerators.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/RandomizerGenerators.js) 中的 [Private class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)，同時新增支援 Firefox 等瀏覽器。
 
 ## 2020/06/22 更新內容
 1. 修改地點資料（1.0.0-beta） — 刪除將不再是餐廳的地點「大一女」，修改不清晰的地點「新生南路（大學里）」為「溫州街（新生南路）」。
