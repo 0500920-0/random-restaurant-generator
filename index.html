@@ -66,8 +66,8 @@
   
   <script nomodule>document.getElementById('probability').append('這個瀏覽器似乎不支援 module……');</script>
   <script>
-    window.addEventListener('error', function (message, source, lineno, colno, error) {
-      document.getElementById('probability').append('錯誤：', message, ' (', source, ':', lineno, '/', colno, ')');
+    window.addEventListener('error', function (evt) {
+      document.getElementById('probability').append('錯誤：', evt.message);
     });
   </script>
   <script src="./js/index.js" type="module"></script>
