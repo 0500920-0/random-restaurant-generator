@@ -17,6 +17,9 @@
 ---
 我這次也沒有使用沒有使用 jQuery 和 Bootstrap，新增、刪除 HTML Element 等功能的部分則使用瀏覽器內建的程式處理（語法類似 jQuery）。
 
+### 支援瀏覽器
+由於部分使用到的技術較新，所以不支援較舊的瀏覽器和 。目前測試在 Chrome 版本 83、Firefox 版本 77 下運作大致正常，Android 版 Firefox 版本 68 和 iPhone 的 Safari 似乎無法運作。
+
 ### CSS 和字體
 這次的 CSS 沒有使用到特別多的技術，主要是代替 Bootstrap 的 [CSS Grid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout) 跟 [CSS Flexbox](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox) 而已。
 
@@ -28,8 +31,10 @@
 
 ### JavaScript（寫法）
 這次用了很多上課沒有提及的寫法，整個過程有點像在寫 Python。。。XD
++ 註：以下寫法是這個網頁在部分手機瀏覽器下不能運作的原因之一。
 1. [ES Module](https://pjchender.github.io/2017/10/26/js-javascript-%E6%A8%A1%E7%B5%84%EF%BC%88es-module%EF%BC%89/) — 類似 Python 的 import 語法。
 2. [Class](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) <s>和 [Private class fields 的 `#` 號](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)</s> — 和 Python 的 Class 有點像，用在 [RandomizerGenerators.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/RandomizerGenerators.js)。
+3. [Nullish coalescing operator 的 `??`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) 和 [Optional chaining 的 `?.`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) — 解決 undefined 跟 null 的問題，主要用於 [RandomizerGenerators.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/RandomizerGenerators.js)。
 
 ### Javascript（API 和程式）
 1. `addEventListener`、`createElement` 等 — 代替 jQuery 的程式，主要集中在 [view.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/view.js) 和 [index.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/index.js)。
