@@ -39,7 +39,7 @@
 ### Javascript（API 和程式）
 1. [Geoloaction API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) — 定位用，寫在 [useGeolocation.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/useGeolocation.js)。
 2. [半正弦公式](https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula) — 計算兩經緯度的距離，有誤差，但是足夠使用，也是寫在 [useGeolocation.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/useGeolocation.js)。
-<s>3. `addEventListener`、`createElement` 等 — 代替 jQuery 的程式，主要集中在 [view.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/view.js) 和 [index.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/index.js)。</s>**改回使用 jQuery。**
+3. <s>`addEventListener`、`createElement` 等 — 代替 jQuery 的程式，主要集中在 [view.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/view.js) 和 [index.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/index.js)。</s>**改回使用 jQuery。**
 
 ### Javacript（程式庫）
 除了 jQuery，為了顯示地圖，我還使用了 [OpenLayers 程式庫](https://openlayers.org/)，地圖由 [OpenStreetMap](https://www.openstreetmap.org/) 提供。
