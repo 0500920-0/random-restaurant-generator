@@ -15,7 +15,7 @@
 
 技術
 ---
-我這次也沒有使用沒有使用 jQuery 和 Bootstrap，新增、刪除 HTML Element 等功能的部分則使用瀏覽器內建的程式處理（語法類似 jQuery）。
+我這次也沒有使用沒有使用 Bootstrap。
 
 ### 支援瀏覽器
 由於部分使用到的技術較新，所以不支援較舊的瀏覽器和 。目前測試在 Chrome 版本 83、Firefox 版本 77 下運作大致正常，Android 版 Firefox 版本 68 和 iPhone 的 Safari 似乎無法運作。
@@ -37,12 +37,15 @@
 3. [Nullish coalescing operator 的 `??`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing_operator) 和 [Optional chaining 的 `?.`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining) — 解決 undefined 跟 null 的問題，主要用於 [RandomizerGenerators.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/RandomizerGenerators.js)。
 
 ### Javascript（API 和程式）
-1. `addEventListener`、`createElement` 等 — 代替 jQuery 的程式，主要集中在 [view.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/view.js) 和 [index.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/index.js)。
-2. [Geoloaction API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) — 定位用，寫在 [useGeolocation.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/useGeolocation.js)。
-3. [半正弦公式](https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula) — 計算兩經緯度的距離，有誤差，但是足夠使用，也是寫在 [useGeolocation.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/useGeolocation.js)。
+1. [Geoloaction API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) — 定位用，寫在 [useGeolocation.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/useGeolocation.js)。
+2. [半正弦公式](https://stackoverflow.com/questions/27928/calculate-distance-between-two-latitude-longitude-points-haversine-formula) — 計算兩經緯度的距離，有誤差，但是足夠使用，也是寫在 [useGeolocation.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/useGeolocation.js)。
+<s>3. `addEventListener`、`createElement` 等 — 代替 jQuery 的程式，主要集中在 [view.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/view.js) 和 [index.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/index.js)。</s>**改回使用 jQuery。**
 
 ### Javacript（程式庫）
-雖然沒有使用 jQuery，但是為了顯示地圖，我還是使用了 [OpenLayers 程式庫](https://openlayers.org/)，地圖由 [OpenStreetMap](https://www.openstreetmap.org/) 提供。
+除了 jQuery，為了顯示地圖，我還使用了 [OpenLayers 程式庫](https://openlayers.org/)，地圖由 [OpenStreetMap](https://www.openstreetmap.org/) 提供。
+
+## 2020/06/30 更新內容
+1. 由於作業規定必須使用 jQuery，所以改回相關介紹。
 
 ## 2020/06/23 更新內容
 1. 由於不少瀏覽器（尤其手機）不支援，故移除 [RandomizerGenerators.js](https://github.com/0500920-0/random-restaurant-generator/blob/master/js/RandomizerGenerators.js) 中的 [Private class fields](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields)，同時新增支援 Firefox 等瀏覽器。
