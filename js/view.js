@@ -1,5 +1,8 @@
 // @ts-check
 
+// @ts-ignore
+import $ from 'https://jspm.dev/jquery@3.5.1/dist/jquery.slim.min.js';
+
 /**
  * 
  * @param {import('./RandomizerGenerator.js').RandomProbabilityItem[]} randomProbabilityList
@@ -10,26 +13,26 @@ export const refreshProbabilityList = (randomProbabilityList, { isUserDefinable 
     const randomTrArray = randomProbabilityList
         .sort((first, second) => second.probability - first.probability)
         .map((item) => {
-            let $tr = document.createElement('tr');
-            let $name = document.createElement('td');
-            $name.classList.add('name');
+            let $tr = $('<tr>');
+            let $name = $('<td>');
+            $name.addClass('name');
             if (item.alias == null) { // || item.alias.length > 8
                 $name.append(item.name);
             } else {
                 $name.append(`${item.name}（${item.alias}）`);
             }
 
-            let $prob = document.createElement('td');
-            $prob.classList.add('probability');
+            let $prob = $('<td>');
+            $prob.addClass('probability');
             if (isUserDefinable) {
-                let $input = document.createElement('input');
-                $input.classList.add('userDefined');
-                $input.name = item.name;
-                $input.type = 'number';
-                $input.min = '0';
-                $input.step = 'any';
-                $input.value = item.weight.toString();
-                $input.placeholder = item.weight.toString();
+                let $input = $('<input>');
+                $input.addClass('userDefined');
+                $input.attr('name', item.name);
+                $input.attr('type', 'number');
+                $input.attr('min', '0');
+                $input.attr('step', 'any');
+                $input.attr('value', item.weight.toString());
+                $input.attr('placeholder', item.weight.toString());
                 $prob.append($input);
             } else {
                 $prob.append(`${(item.probability * 100).toFixed(2)} %`);
@@ -39,37 +42,37 @@ export const refreshProbabilityList = (randomProbabilityList, { isUserDefinable 
             return $tr
         });
 
-    let $tbody = document.createElement('tbody');
+    let $tbody = $('<tbody>');
     $tbody.append(...randomTrArray);
 
-    let $thead = document.createElement('thead');
-    let $tr = document.createElement('tr');
+    let $thead = $('<thead>');
+    let $tr = $('<tr>');
 
-    let $name = document.createElement('th');
-    $name.id = 'nameTitle';
-    $name.classList.add('name');
-    $name.colSpan = 2;
+    let $name = $('<th>');
+    $name.attr('id', 'nameTitle');
+    $name.addClass('name');
+    $name.attr('colSpan', 2);
     $name.append('地點');
 
     if (isUserDefinable) {
-        let $btn = document.createElement('button');
-        $btn.id = 'submitBtn';
+        let $btn = $('<button>');
+        $btn.attr('id', 'submitBtn');
         $btn.append('權重設定完畢');
-        $btn.classList.add('btn');
+        $btn.addClass('btn');
 
         $name.append($btn);
-    } else if (document.getElementById('submitBtn') != null) {
-        document.getElementById('submitBtn').remove();
+    } else if ($('#submitBtn') != null) {
+        $('#submitBtn').remove();
     }
 
     $tr.append($name);
     $thead.append($tr);
 
-    let $oldTable = document.getElementById('probabilityList');
+    let $oldTable = $('#probabilityList');
 
-    let $newTable = document.createElement('table');
-    $newTable.id = 'probabilityList'
-    $newTable.classList.add('probabilityList');
+    let $newTable = $('<table>');
+    $newTable.attr('id', 'probabilityList');
+    $newTable.addClass('probabilityList');
     $newTable.append($thead, $tbody);
 
     $oldTable.replaceWith($newTable);
@@ -81,16 +84,16 @@ export const refreshProbabilityList = (randomProbabilityList, { isUserDefinable 
  * @param {string=} alias
  */
 export const replaceRandomResultText = (name, alias) => {
-    let $oldRandomResult = document.getElementById('randomResult');
+    let $oldRandomResult = $('#randomResult');
 
-    let $newRandomResult = document.createElement('header');
-    $newRandomResult.id = 'randomResult';
+    let $newRandomResult = $('<header>');
+    $newRandomResult.attr('id', 'randomResult');
 
     if (alias == null) {
         $newRandomResult.append(name);
     } else {
         // $newRandomResult.append(`${name}（${alias}）`);
-        $newRandomResult.append(name, document.createElement('br'), `（${alias}）`);
+        $newRandomResult.append(name, $('<br>'), `（${alias}）`);
     }
 
     $oldRandomResult.replaceWith($newRandomResult);

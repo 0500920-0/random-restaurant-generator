@@ -5,8 +5,11 @@ import { locate, getDistance } from './useGeolocation.js'
 import { initMap, addPin, removePin } from './OLMap.js';
 import { refreshProbabilityList, replaceRandomResultText } from './view.js';
 
+// @ts-ignore
+import $ from 'https://jspm.dev/jquery@3.5.1/dist/jquery.slim.min.js';
+
 // Main function, called immediately.
-(async () => {
+$(async () => {
   /**
    * @typedef {Object} jsonList
    * @property {string} version
@@ -33,7 +36,7 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
 
   let currentLocationLayer;
 
-  document.querySelector('form.randomTypeRadio').addEventListener('click', async (evt) => { // onInput
+  $('form.randomTypeRadio').on('click', async (evt) => { // onInput
     const randomType = /** @type {HTMLInputElement} */(evt.target).value;
     if (randomType === 'nearest') {
       try {
@@ -55,7 +58,7 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
         currentLocationLayer = addPin(currentLocation, olMap, { isCurrent: true });
       } catch (err) {
         if (err instanceof ReferenceError) { // if Geolocation API is not supported
-          /** @type {HTMLInputElement} */(document.getElementById('randomDefault')).value = 'default';
+          $('#randomDefault').value = 'default';
         } else { // rethrow XD
           throw err;
         }
@@ -83,10 +86,10 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
 
     // #submitBtn aka「權重設定完畢」button
     if (randomType === 'user') {
-      const $form = /** @type {HTMLFormElement} */(document.getElementById('weight'));
-      $form.addEventListener('submit', (evt) => {
-        const formData = new FormData($form);
+      const $form = $('#weight');
+      $form.one('submit', (evt) => {
         evt.preventDefault();
+        const formData = new FormData($form.get(0)); // FormData needs HTML Element...
         for (let [name, weightStr] of formData) {
           const weight = +weightStr;
           if (weight <= 0) {
@@ -102,7 +105,7 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
     }
   });
 
-  document.getElementById('fab').addEventListener('click', () => {
+  $('#fab').on('click', () => {
 
     try {
       const randomItem = randomObject.pick();
@@ -124,7 +127,7 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
     }
   });
 
-  document.getElementById('reset').addEventListener('click', () => {
+  $('#reset').on('click', () => {
     randomObject.reset();
 
     replaceRandomResultText('📍 請按右下角');
@@ -135,7 +138,4 @@ import { refreshProbabilityList, replaceRandomResultText } from './view.js';
 
     refreshProbabilityList(randomObject.getProbabilityList());
   });
-
-  // @ts-ignore for debug only
-  window.random = randomObject;
-})();
+});
